@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './Calculator.css';
 
+// Components
+import Key from './../key/Key';
+
 class Calculator extends Component {
     constructor(props) {
         super(props);
@@ -24,9 +27,7 @@ class Calculator extends Component {
                 </div>
                 <div className="calculator-keypad">
                     {/* AC */}
-                    <button className="key key--plum--dark">
-                        <span>AC</span>
-                    </button>
+                    <Key label="AC" value="AC" colour="plum--dark"/>
 
                     {/* C */}
                     <button className="key key--plum--medium">

@@ -43,37 +43,3 @@
     font-family: 'Roboto Mono' !important;
     margin: 0 !important;
 }
-
-/** Keys **/
-.calculator-keypad {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 0px;
-    grid-auto-rows: 75px;
-}
-
-.key {
-    border: none;
-}
-
-.key > span {
-    color: #fff;
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.key--lilac {
-    background: #7C8EBF;
-}
-
-.key--plum--light {
-    background: #172346;
-}
-
-.key--plum--medium {
-    background: #111D41;
-}
-
-.key--plum--dark {
-    background: #0D183A;
-}
