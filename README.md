@@ -4,7 +4,7 @@ This is an open source calculator built in React. This project was bootstrapped 
 ## Remaining Tasks
 - [x] Basic calulator function
 - [x] Basic styling
-- [ ] Extract duplicate functionality into separate components
+- [ ] Extract duplicate functionality into re-usable functions
 - [ ] Remove use of eval()
 
 ## Available Scripts
