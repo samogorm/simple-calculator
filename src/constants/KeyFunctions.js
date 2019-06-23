@@ -4,6 +4,7 @@
 const keyFunctions = {
     mathematicalOperators: ['/', '*', '-', '+'],
     clearAllCharacters: 'AC',
+    clearLastWholeEntry: 'C', // TODO: think of a better name.
     clearLastCharacter: 'del',
     doCalculation: '=',
     doPercentage: '%'
@@ -27,6 +28,17 @@ const isMathematicalOperator = (value) => {
  */
 const willClearAllCharacters = (value) => {
     return value === keyFunctions.clearAllCharacters ? true : false;
+}
+
+/**
+ * This will check if the given value will clear the last whole entry item.
+ * E.g Calculation: (23 * 45.5) - this function would clear '45.5' .
+ *
+ * @var {Any} value The value to check.
+ * @return {Bool} true/false
+ */
+const willClearLastWholeEntry = (value) => {
+    return value === keyFunctions.clearLastWholeEntry ? true : false;
 }
 
 /**
@@ -64,6 +76,7 @@ const isPercentage = (value) => {
 // Exports
  module.exports.isMathematicalOperator = isMathematicalOperator;
  module.exports.willClearAllCharacters = willClearAllCharacters;
+ module.exports.willClearLastWholeEntry = willClearLastWholeEntry;
  module.exports.willClearLastCharacter = willClearLastCharacter;
  module.exports.willPerformCalculation = willPerformCalculation;
  module.exports.isPercentage = isPercentage;

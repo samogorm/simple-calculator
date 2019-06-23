@@ -6,7 +6,7 @@ import Key from './../key/Key';
 
 // Constants
 import {CalculatorKeys} from './../../constants/CalculatorKeys';
-import {isMathematicalOperator, willPerformCalculation, willClearAllCharacters, willClearLastCharacter, isPercentage} from './../../constants/KeyFunctions';
+import {isMathematicalOperator, willPerformCalculation, willClearAllCharacters, willClearLastCharacter, isPercentage, willClearLastWholeEntry} from './../../constants/KeyFunctions';
 
 class Calculator extends Component {
     constructor(props) {
@@ -21,6 +21,7 @@ class Calculator extends Component {
         this._captureKeyValue = this._captureKeyValue.bind(this);
         this._doCalculation = this._doCalculation.bind(this);
         this._clearEverything = this._clearEverything.bind(this);
+        this._clearLastWholeEntry = this._clearLastWholeEntry.bind(this);
         this._removeLastCharFromCalculation = this._removeLastCharFromCalculation.bind(this);
     }
 
@@ -68,6 +69,7 @@ class Calculator extends Component {
      */
     _captureKeyValue = (value) => {
         if (willClearAllCharacters(value)) return this._clearEverything();
+        if (willClearLastWholeEntry(value)) return this._clearLastWholeEntry();
         if (willClearLastCharacter(value)) return this._removeLastCharFromCalculation();
 
         if (willPerformCalculation(value)) return this._doCalculation();
@@ -82,7 +84,7 @@ class Calculator extends Component {
      * This will parse the calculation and execute it.
      */
     _doCalculation = () => {
-        let result = eval(this.state.calculation);
+        const result = eval(this.state.calculation);
         this.setState({ result: result})
     }
 
@@ -94,10 +96,21 @@ class Calculator extends Component {
     }
 
     /**
+     * Clears the last whole entry from the calculation state.
+     */
+    _clearLastWholeEntry = () => {
+        const calculation = this.state.calculation;
+        let splitCalculation = calculation.split(" ");
+        let lastWholeEntry = splitCalculation[splitCalculation.length - 1];
+
+        this.setState({calculation: calculation.substring(0, calculation.length - lastWholeEntry.length)});
+    }
+
+    /**
      * Removes last character from the calculation.
      */
     _removeLastCharFromCalculation = () => {
-        let calculation = this.state.calculation;
+        const calculation = this.state.calculation;
         this.setState({calculation: calculation.substring(0, calculation.length - 1)});
     }
 
