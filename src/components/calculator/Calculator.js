@@ -78,17 +78,15 @@ class Calculator extends Component {
         if (willPerformCalculation(value)) this._doCalculation();
 
         let shouldAddSpace = isMathematicalOperator(value) || willPerformCalculation(value);
-        this.setState({ calculation: shouldAddSpace ? this.state.calculation + " " + value + " " : this.state.calculation + value });
+        this.setState({calculation: shouldAddSpace ? this.state.calculation + " " + value + " " : this.state.calculation + value});
     }
 
     /**
      * This will parse the calculation and execute it.
      */
     _doCalculation = () => {
-        // Parse the string
-        console.log(typeof this.state.calculation);
-
-        // TODO: return result
+        const result = eval(this.state.calculation);
+        this.setState({ result: result})
     }
 
     /**
