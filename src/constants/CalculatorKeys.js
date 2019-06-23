@@ -54,7 +54,7 @@ export const CalculatorKeys = [
     },
     {
         id: 8,
-        label: 'X',
+        label: '*',
         value: '*',
         icon: 'times',
         colour: 'lilac'

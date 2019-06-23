@@ -34,7 +34,7 @@ class Key extends Component {
      * appropriate label/icon for the button/key.
      */
     _renderLabelForKey = () => {
-        return this.props.label !== null ? this.props.label : `<i className="fa fa-${this.props.icon}"></i>`;
+        return this.props.label !== null ? this.props.label : `<img src="${require('./../../assets/svg/' + this.props.icon + '.svg')}"/>`;
     }
 
     /**

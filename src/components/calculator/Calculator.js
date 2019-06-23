@@ -6,7 +6,7 @@ import Key from './../key/Key';
 
 // Constants
 import {CalculatorKeys} from './../../constants/CalculatorKeys';
-import {isMathematicalOperator, willPerformCalculation, willClearAllCharacters, willClearLastCharacter} from './../../constants/KeyFunctions';
+import {isMathematicalOperator, willPerformCalculation, willClearAllCharacters, willClearLastCharacter, isPercentage} from './../../constants/KeyFunctions';
 
 class Calculator extends Component {
     constructor(props) {
@@ -70,17 +70,19 @@ class Calculator extends Component {
         if (willClearAllCharacters(value)) return this._clearEverything();
         if (willClearLastCharacter(value)) return this._removeLastCharFromCalculation();
 
-        if (willPerformCalculation(value)) this._doCalculation();
+        if (willPerformCalculation(value)) return this._doCalculation();
 
         let shouldAddSpace = isMathematicalOperator(value) || willPerformCalculation(value);
-        this.setState({calculation: shouldAddSpace ? this.state.calculation + " " + value + " " : this.state.calculation + value});
+        let outputValue = isPercentage(value) ? ' / 100' : value;
+
+        this.setState({calculation: shouldAddSpace ? this.state.calculation + " " + outputValue + " " : this.state.calculation + outputValue});
     }
 
     /**
      * This will parse the calculation and execute it.
      */
     _doCalculation = () => {
-        const result = eval(this.state.calculation);
+        let result = eval(this.state.calculation);
         this.setState({ result: result})
     }
 
@@ -95,7 +97,7 @@ class Calculator extends Component {
      * Removes last character from the calculation.
      */
     _removeLastCharFromCalculation = () => {
-        const calculation = this.state.calculation;
+        let calculation = this.state.calculation;
         this.setState({calculation: calculation.substring(0, calculation.length - 1)});
     }
 
