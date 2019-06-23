@@ -2,7 +2,7 @@
  * An object that contains the available key functions.
  */
 const keyFunctions = {
-    mathematicalOperators: ['/', 'x', '-', '+'],
+    mathematicalOperators: ['/', '*', '-', '+'],
     clearAllCharacters: 'AC',
     clearLastCharacter: 'del',
     doCalculation: '=',

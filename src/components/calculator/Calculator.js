@@ -24,11 +24,6 @@ class Calculator extends Component {
         this._removeLastCharFromCalculation = this._removeLastCharFromCalculation.bind(this);
     }
 
-    // For testing only.
-    componentDidUpdate() {
-        console.log("Component State: ", this.state.result);
-    }
-
     render() {
         return(
             <div className="calculator-body">
