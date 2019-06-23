@@ -6,7 +6,7 @@ import Key from './../key/Key';
 
 // Constants
 import {CalculatorKeys} from './../../constants/CalculatorKeys';
-import {isMathematicalOperator} from './../../constants/KeyFunctions';
+import {isMathematicalOperator, willPerformCalculation, willClearAllCharacters, willClearLastCharacter} from './../../constants/KeyFunctions';
 
 class Calculator extends Component {
     constructor(props) {
@@ -14,16 +14,19 @@ class Calculator extends Component {
 
         this.state = {
             calculation: '',
-            result: null
+            result: 0
         }
 
         this._mapCalculatorKeysToComponent = this._mapCalculatorKeysToComponent.bind(this);
         this._captureKeyValue = this._captureKeyValue.bind(this);
+        this._doCalculation = this._doCalculation.bind(this);
+        this._clearEverything = this._clearEverything.bind(this);
+        this._removeLastCharFromCalculation = this._removeLastCharFromCalculation.bind(this);
     }
 
     // For testing only.
     componentDidUpdate() {
-        console.log("Component State: ", this.state.calculation);
+        console.log("Component State: ", this.state.result);
     }
 
     render() {
@@ -34,7 +37,7 @@ class Calculator extends Component {
                         <span>{this.state.calculation}</span>
                     </div>
                     <div className="calculation-result">
-                        <h3>21</h3>
+                        <h3>{this.state.result}</h3>
                     </div>
                 </div>
                 <div className="calculator-keypad">
@@ -69,14 +72,38 @@ class Calculator extends Component {
      * @var {Any} value The value that is being pulled from the child component.
      */
     _captureKeyValue = (value) => {
-        let isOperator = isMathematicalOperator(value);
-        this.setState({ calculation: isOperator ? this.state.calculation + " " + value + " " : this.state.calculation + value });
+        if (willClearAllCharacters(value)) return this._clearEverything();
+        if (willClearLastCharacter(value)) return this._removeLastCharFromCalculation();
+
+        if (willPerformCalculation(value)) this._doCalculation();
+
+        let shouldAddSpace = isMathematicalOperator(value) || willPerformCalculation(value);
+        this.setState({ calculation: shouldAddSpace ? this.state.calculation + " " + value + " " : this.state.calculation + value });
     }
 
-    _makeCalculation = () => {
-        // TODO: escape the state calculation
+    /**
+     * This will parse the calculation and execute it.
+     */
+    _doCalculation = () => {
+        // Parse the string
+        console.log(typeof this.state.calculation);
 
         // TODO: return result
+    }
+
+    /**
+     * Clears the component state.
+     */
+    _clearEverything = () => {
+        this.setState({calculation: '', result: 0});
+    }
+
+    /**
+     * Removes last character from the calculation.
+     */
+    _removeLastCharFromCalculation = () => {
+        const calculation = this.state.calculation;
+        this.setState({calculation: calculation.substring(0, calculation.length - 1)});
     }
 
 }
