@@ -12,19 +12,19 @@
     font-weight: 600;
 }
 
-/* TODO: Add css variables for these hexadecimals. */
+/* Lilac Keys */
 .key--lilac {
-    background: #7C8EBF;
+    background: var(--lilac-color);
 }
 
 .key--plum--light {
-    background: #172346;
+    background: var(--plum-light-color);
 }
 
 .key--plum--medium {
-    background: #111D41;
+    background: var(--plum-medium-color);
 }
 
 .key--plum--dark {
-    background: #0D183A;
+    background: var(--plum-dark-color);
 }

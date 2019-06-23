@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+/* Color Variables */
+:root {
+  --lilac-color: #7C8EBF;
+  --plum-light-color: #172346;
+  --plum-medium-color: #111D41;
+  --plum-dark-color: #0D183A;
+}
