@@ -10,11 +10,22 @@
     color: #fff;
     font-size: 22px;
     font-weight: 600;
+    transition: background .8s ease-in-out;
+}
+
+.key:active {
+    background: rgba(255, 255, 255, 0.8);
+    transition: background .8s ease-in-out;
 }
 
 /* Lilac Keys */
 .key--lilac {
     background: var(--lilac-color);
+}
+
+.key--lilac:active {
+    background: rgba(255, 255, 255, 1);
+    transition: background .8s ease-in-out;
 }
 
 .key--plum--light {
