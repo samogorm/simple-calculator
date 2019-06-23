@@ -103,10 +103,6 @@ class Calculator extends Component {
         }
     }
 
-    _removeTrailingMathOperatorFromCalculation = () => {
-
-    }
-
     /**
      * Clears the component state.
      */
