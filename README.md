@@ -6,6 +6,7 @@ This is an open source calculator built in React. This project was bootstrapped 
 - [x] Basic styling
 - [ ] Extract duplicate functionality into re-usable functions i.e in Calculator.js
 - [ ] Remove use of eval()
+- [ ] Add Icons
 
 ## Available Scripts
 
