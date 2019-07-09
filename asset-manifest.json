@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/samogorm/simple-calculator/static/css/main.3caffff7.chunk.css",
+    "main.js": "/samogorm/simple-calculator/static/js/main.fdbd7fb6.chunk.js",
+    "main.js.map": "/samogorm/simple-calculator/static/js/main.fdbd7fb6.chunk.js.map",
+    "runtime~main.js": "/samogorm/simple-calculator/static/js/runtime~main.51894482.js",
+    "runtime~main.js.map": "/samogorm/simple-calculator/static/js/runtime~main.51894482.js.map",
+    "static/js/2.d352428b.chunk.js": "/samogorm/simple-calculator/static/js/2.d352428b.chunk.js",
+    "static/js/2.d352428b.chunk.js.map": "/samogorm/simple-calculator/static/js/2.d352428b.chunk.js.map",
+    "index.html": "/samogorm/simple-calculator/index.html",
+    "precache-manifest.f2ccdf7d5a7a48efeea61ab7d8e7fa4d.js": "/samogorm/simple-calculator/precache-manifest.f2ccdf7d5a7a48efeea61ab7d8e7fa4d.js",
+    "service-worker.js": "/samogorm/simple-calculator/service-worker.js",
+    "static/css/main.3caffff7.chunk.css.map": "/samogorm/simple-calculator/static/css/main.3caffff7.chunk.css.map",
+    "static/media/App-Icon.svg": "/samogorm/simple-calculator/static/media/App-Icon.688422f5.svg",
+    "static/media/divide.svg": "/samogorm/simple-calculator/static/media/divide.09f15129.svg",
+    "static/media/equals.svg": "/samogorm/simple-calculator/static/media/equals.bf665f47.svg",
+    "static/media/minus.svg": "/samogorm/simple-calculator/static/media/minus.5252db72.svg",
+    "static/media/plus.svg": "/samogorm/simple-calculator/static/media/plus.e5f57f20.svg",
+    "static/media/times.svg": "/samogorm/simple-calculator/static/media/times.d5209bce.svg"
+  }
+}
